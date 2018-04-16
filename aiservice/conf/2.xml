@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<serviceNames>
+<serviceName value="faceCompare_app" type="0">
+	<requestUrl>/imageDis</requestUrl>
+	<input>
+		<para name="image1" type="string" flag="1" />
+		<para name="image2" type="string" flag="1" />
+	</input>
+	<output>
+		<para name="errorCode" type="string" />
+		<para name="result" type="string" />
+		<para name="msg" type="string" />
+	</output>
+</serviceName>
+
+<serviceName value="fw_app" type="2">
+	<requestUrl>http://192.168.74.205:42345/fw</requestUrl>
+	<input>
+		<para name="image" type="string" flag="1" />
+	</input>
+	<output>
+		<para name="errorCode" type="string" />
+		<para name="result" type="string" />
+		<para name="msg" type="string" />
+	</output>
+</serviceName>
+
+<serviceName value="sign_app" type="0">
+	<requestUrl>/SignImageDetect</requestUrl>
+	<input>
+		<para name="image" type="string"  flag="1" />
+	</input>
+	<output>
+		<para name="errorCode" type="string" />
+		<para name="result" type="string" />
+		<para name="msg" type="string" />
+	</output>
+</serviceName>
+
+<serviceName value="baidu_app" type="2">
+	<requestUrl>http://10.78.153.225:8885/vis-faceverify/v2/faceverify/match</requestUrl>
+	<input>
+		<para name="images" type="string"  flag="1" />
+	</input>
+	<output>
+		<para name="errorCode" type="string" />
+		<para name="result" type="string" />
+		<para name="msg" type="string" />
+	</output>
+</serviceName>
+<serviceName value="test_fw_model" type="2">
+        <requestUrl>http://192.168.74.205:9011/</requestUrl>
+        <input>
+                <para name="image1" type="numpy.arry"  flag="2" />
+        </input>
+        <output>
+                <para name="errorCode" type="string" />
+                <para name="result" type="string" />
+                <para name="msg" type="string" />
+        </output>
+</serviceName>
+<serviceName value="test_fw" type="2">
+        <requestUrl>http://192.168.74.205:9013/</requestUrl>
+        <input>
+                <para name="image1" type="string"  flag="1" />
+        </input>
+        <output>
+                <para name="errorCode" type="string" />
+                <para name="result" type="string" />
+                <para name="msg" type="string" />
+        </output>
+</serviceName>
+
+<serviceName value="sign_app_new" type="2">
+        <requestUrl>http://10.11.20.127:60001/SignImageDetect</requestUrl>
+        <input>
+                <para name="image" type="string"  flag="2" />
+        </input>
+        <output>
+                <para name="errorCode" type="string" />
+                <para name="result" type="string" />
+                <para name="msg" type="string" />
+        </output>
+</serviceName>
+<serviceName value="test_fw_new" type="2">
+        <requestUrl>http://10.11.20.127:20001/</requestUrl>
+        <input>
+                <para name="image1" type="string"  flag="1" />
+        </input>
+        <output>
+                <para name="errorCode" type="string" />
+                <para name="result" type="string" />
+                <para name="msg" type="string" />
+        </output>
+</serviceName>
+
+</serviceNames>

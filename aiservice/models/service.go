@@ -56,9 +56,8 @@ func CheckMatchServiceNameAndParms(serviceName string, requestParms map[string]i
 		if serviceName == serviceNameFromXml {
 			flag := true
 			for _, a := range s.Input.Inputs {
-				fmt.Println(a.IName,a.IType,a.IFlag)
-				fmt.Println(requestParms[a.IName])
-				if requestParms[a.IName] == "" {
+				//fmt.Println(a.IName,a.IType,a.IFlag)
+				if requestParms[a.IName] == nil {
 					flag = false
 				}
 			}

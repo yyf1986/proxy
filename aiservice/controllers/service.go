@@ -26,24 +26,34 @@ func (s *ServiceController) Post() {
 	serviceName := data.ServiceName
 	requestParms := data.RequestParms
 	switch {
+	//serviceName参数是否为空
 	case serviceName == "":
 		logs.Error("no serviceName")
 		s.Data["json"] = map[string]interface{}{"respId": respId, 
 												"respCode": 200, 
-												"respMsg":"json string has no serviceName", 
+												"respMsg":"Argument Required: serviceName", 
 												"respInfo": ""}
 		s.ServeJSON()
+	//requestParms参数是否为空
 	case len(requestParms) == 0:
 		logs.Error("no requestParms")
 		s.Data["json"] = map[string]interface{}{"respId": respId, 
 												"respCode": 200, 
-												"respMsg":"json string has no requestParms", 
+												"respMsg":"Argument Required: requestParms", 
 												"respInfo": ""}
 		s.ServeJSON()
+	//传入的serviceName是否在xml配置中
 	case models.CheckServiceName(serviceName) == false:
 		s.Data["json"] = map[string]interface{}{"respId": respId, 
 												"respCode": 200, 
 												"respMsg":"serviceName not exist", 
+												"respInfo": ""}
+		s.ServeJSON()
+	//检查对应的serviceName，对应的requestParms中传入的参数是否匹配
+	case models.CheckMatchServiceNameAndParms(serviceName, requestParms) == false:
+		s.Data["json"] = map[string]interface{}{"respId": respId, 
+												"respCode": 200, 
+												"respMsg":"aaaa not exist", 
 												"respInfo": ""}
 		s.ServeJSON()
 	}
